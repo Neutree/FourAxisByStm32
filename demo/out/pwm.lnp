@@ -1,0 +1,20 @@
+--cpu Cortex-M3
+"..\out\main.o"
+"..\out\usart.o"
+"..\out\pwm.o"
+"..\out\delay.o"
+"..\out\imu_usart.o"
+"..\out\time.o"
+"..\out\control.o"
+"..\out\misc.o"
+"..\out\stm32f10x_gpio.o"
+"..\out\stm32f10x_rcc.o"
+"..\out\stm32f10x_tim.o"
+"..\out\gpio_stm32f10x.o"
+"..\out\startup_stm32f10x_md.o"
+"..\out\system_stm32f10x.o"
+"..\out\stm32f10x_usart.o"
+--strict --scatter "..\out\pwm.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\pwm.map" -o ..\out\pwm.axf
