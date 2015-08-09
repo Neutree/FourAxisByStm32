@@ -14,9 +14,9 @@ void init()
 	TIM3_Configuration();
 	PWMConfig();
 	
-	IMUInit(1,0,0);//pitch·´Ïò roll yaw ²»·´Ïò
-	MotorRangeAdjust();//µç»úÉÏµçÆô¶¯Ð£×¼  ÓÃÊ±£º´óÓÚ4s
-	CopterAdjustInit(6.1,0.15,0.8,0,0,0,0,0,0);//PIDÖµ³õÊ¼»¯
+	IMUInit(1,0,0);//pitchåå‘ roll yaw ä¸åå‘
+	MotorRangeAdjust();//ç”µæœºä¸Šç”µå¯åŠ¨æ ¡å‡†  ç”¨æ—¶ï¼šå¤§äºŽ4s
+	CopterAdjustInit(6.1,0.15,0.8,0,0,0,0,0,0);//PIDå€¼åˆå§‹åŒ–
 }
 
 int main()
@@ -24,7 +24,9 @@ int main()
 	init();
 	while(1)
 	{
-		if(flag10ms==1)//10msÒ»´Î  100Hz
+		
+		
+		if(flag10ms==1)//10msä¸€æ¬¡  100Hz
 		{
 			CopterAdjust();
 			//MotorTimer->CCR1=4200;
