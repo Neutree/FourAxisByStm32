@@ -169,32 +169,32 @@ void USART1_IRQHandler(void)
 		}
 		else if(data=='3')
 		{
-			ControlCopterK.pitch.P+=0.5;
+			ControlCopterK.pitch.P+=0.1;
 			printf("P:%10.2lf\n",ControlCopterK.pitch.P);
 		}
 		else if(data=='4')
 		{
-			ControlCopterK.pitch.P-=0.5;
+			ControlCopterK.pitch.P-=0.1;
 			printf("P:%10.2lf\n",ControlCopterK.pitch.P);
 		}
 		else if(data=='5')
 		{
-			ControlCopterK.pitch.I+=0.5;
+			ControlCopterK.pitch.I+=0.01;
 			printf("I:%10.2lf\n",ControlCopterK.pitch.I);
 		}
 		else if(data=='6')
 		{
-			ControlCopterK.pitch.I-=0.5;
+			ControlCopterK.pitch.I-=0.01;
 			printf("I:%10.2lf\n",ControlCopterK.pitch.I);
 		}
 		else if(data=='7')
 		{
-			ControlCopterK.pitch.D+=0.5;
+			ControlCopterK.pitch.D+=0.1;
 			printf("D:%10.2lf\n",ControlCopterK.pitch.D);
 		}
 		else if(data=='8')
 		{
-			ControlCopterK.pitch.D-=0.5;
+			ControlCopterK.pitch.D-=0.1;
 			printf("D:%10.2lf\n",ControlCopterK.pitch.D);
 		}
 		USART_SendData(USART1,data);

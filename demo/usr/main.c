@@ -16,7 +16,7 @@ void init()
 	
 	IMUInit(1,0,0);//pitch反向 roll yaw 不反向
 	MotorRangeAdjust();//电机上电启动校准  用时：大于4s
-	CopterAdjustInit(1.5,0,2,1.5,0,2,0,0,0);//PID值初始化
+	CopterAdjustInit(6.1,0.15,0.8,0,0,0,0,0,0);//PID值初始化
 }
 
 int main()

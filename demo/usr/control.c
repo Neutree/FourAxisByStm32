@@ -5,7 +5,7 @@
 /////////////////////////////////////
 ControlK  ControlCopterK;//PID控制系数
 ThreeAxis TargetAngle;//目标量 角度
-int PowerBase=3400;
+int PowerBase=4000;
 
 /////////////////////////
 //电调解锁
@@ -85,18 +85,18 @@ void CopterAdjust()
 	DeviationSumAngle.roll  += DeviationAngle.roll;
 	DeviationSumAngle.yaw   += DeviationAngle.yaw;
 			//积分限幅
-	if(DeviationSumAngle.pitch>300)
-		DeviationSumAngle.pitch=300;
-	else if(DeviationSumAngle.pitch<-300)
-		DeviationSumAngle.pitch=-300;
-	if(DeviationSumAngle.roll>300)
-		DeviationSumAngle.roll=300;
-	else if(DeviationSumAngle.roll<-300)
-		DeviationSumAngle.roll=-300;
-	if(DeviationSumAngle.yaw>300)
-		DeviationSumAngle.yaw=300;
-	else if(DeviationSumAngle.yaw<-300)
-		DeviationSumAngle.yaw=-300;
+	if(DeviationSumAngle.pitch>500)
+		DeviationSumAngle.pitch=500;
+	else if(DeviationSumAngle.pitch<-500)
+		DeviationSumAngle.pitch=-500;
+	if(DeviationSumAngle.roll>500)
+		DeviationSumAngle.roll=500;
+	else if(DeviationSumAngle.roll<-500)
+		DeviationSumAngle.roll=-500;
+	if(DeviationSumAngle.yaw>500)
+		DeviationSumAngle.yaw=500;
+	else if(DeviationSumAngle.yaw<-500)
+		DeviationSumAngle.yaw=-500;
 	
 	
 		//角速度误差（微分项）
@@ -112,7 +112,7 @@ void CopterAdjust()
 	PWMChangeValue(PowerBase-PowerOut.pitch+PowerOut.roll+PowerOut.yaw,MotorTimer,2);
 	PWMChangeValue(PowerBase-PowerOut.pitch-PowerOut.roll-PowerOut.yaw,MotorTimer,3);
 	PWMChangeValue(PowerBase+PowerOut.pitch-PowerOut.roll+PowerOut.yaw,MotorTimer,4);
-	printf("%10.2lf\t%10.2lf\t%10.2lf\n",PowerOut.pitch,PowerOut.roll,PowerOut.yaw);
+	printf("%10.2lf\n",IMUDataSolved.ANGLE.pitch);
 //	delay_ms(200);
 }
 
