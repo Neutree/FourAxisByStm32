@@ -29,6 +29,9 @@ int main()
 		if(flag10ms==1)//10ms一次  100Hz
 		{
 			CopterAdjust();
+
+
+
 			//MotorTimer->CCR1=4200;
 		}
 	}
