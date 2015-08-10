@@ -18,9 +18,9 @@ void TIM4_Configuration(void)
 	GPIO_Init(GPIOB,&GPIO_InitStructure);
 	
 	//GPIO_PinRemapConfig(GPIO_Remap_TIM4,ENABLE);//复用功能重映像
-	//定时器初始化  输出pwm频率为50HZ
+	//定时器初始化  输出pwm频率为400HZ
 	TIM_TimeBaseStruct.TIM_Period=59999;
-	TIM_TimeBaseStruct.TIM_Prescaler=23;
+	TIM_TimeBaseStruct.TIM_Prescaler=2;
 	TIM_TimeBaseStruct.TIM_CounterMode=TIM_CounterMode_Up;
 	TIM_TimeBaseStruct.TIM_ClockDivision=0;
 	TIM_TimeBaseStruct.TIM_RepetitionCounter=0;

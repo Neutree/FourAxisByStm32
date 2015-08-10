@@ -25,15 +25,17 @@ void MotorUnlock()
 ///////////////////////
 void MotorRangeAdjust()//上电时使用
 {
-	PWMChangeDuty(0.1,MotorTimer,1);
-	PWMChangeDuty(0.1,MotorTimer,2);
-	PWMChangeDuty(0.1,MotorTimer,3);
-	PWMChangeDuty(0.1,MotorTimer,4);
+	//设置电机输出占空比，  值：2.0/MotorPWMT 代表最大，MotorPWMT为PWM波输出周期，定义在pwm.h中， 
+	//电调输入识别一个周期内高电平持续的时间，区间为1ms~2ms,1ms为最小值，2ms为最大值，所以占空比为高电平时间除以周期
+	PWMChangeDuty(2.0/MotorPWMT,MotorTimer,1);
+	PWMChangeDuty(2.0/MotorPWMT,MotorTimer,2);
+	PWMChangeDuty(2.0/MotorPWMT,MotorTimer,3);
+	PWMChangeDuty(2.0/MotorPWMT,MotorTimer,4);
 	delay_s(3);//等待2秒，发出beep  beep ，然后等待一秒拉低，设置完成发出beep---- beep-beep-beep- 123
-	PWMChangeDuty(0.05,MotorTimer,1);
-	PWMChangeDuty(0.05,MotorTimer,2);
-	PWMChangeDuty(0.05,MotorTimer,3);
-	PWMChangeDuty(0.05,MotorTimer,4);
+	PWMChangeDuty(1.0/MotorPWMT,MotorTimer,1);
+	PWMChangeDuty(1.0/MotorPWMT,MotorTimer,2);
+	PWMChangeDuty(1.0/MotorPWMT,MotorTimer,3);
+	PWMChangeDuty(1.0/MotorPWMT,MotorTimer,4);
 	delay_s(2);
 }
 //////////////////////////////////////

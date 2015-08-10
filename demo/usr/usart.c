@@ -159,13 +159,13 @@ void USART1_IRQHandler(void)
 		 data=USART_ReceiveData(USART1);
 		 if(data=='1')
 		 {
-			PowerBase+=10;
-			 printf("PowerBase:%10d\n",PowerBase);
+			TIM4->CCR1+=10;
+			 printf("PowerBase:%10d\n",TIM4->CCR1);
 		 }
 		else if(data=='2')
 		{
-			PowerBase-=10;
-			printf("PowerBase:%10d\n",PowerBase);
+			TIM4->CCR1-=10;
+			printf("PowerBase:%10d\n",TIM4->CCR1);
 		}
 		else if(data=='3')
 		{
