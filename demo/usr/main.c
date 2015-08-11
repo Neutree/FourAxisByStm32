@@ -24,14 +24,10 @@ int main()
 	init();
 	while(1)
 	{
-		
-		
 		if(flag10ms==1)//10ms一次  100Hz
 		{
 			CopterAdjust();
-
-
-
+			flag10ms=0;
 			//MotorTimer->CCR1=4200;
 		}
 	}

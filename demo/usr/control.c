@@ -5,7 +5,7 @@
 /////////////////////////////////////
 ControlK  ControlCopterK;//PID控制系数
 ThreeAxis TargetAngle;//目标量 角度
-int PowerBase=4000;
+int PowerBase=35000;
 
 /////////////////////////
 //电调解锁
@@ -13,10 +13,10 @@ int PowerBase=4000;
 /////////////////////////
 void MotorUnlock()
 {
-	PWMChangeDuty(0.05,MotorTimer,1);
-	PWMChangeDuty(0.05,MotorTimer,2);
-	PWMChangeDuty(0.05,MotorTimer,3);
-	PWMChangeDuty(0.05,MotorTimer,4);
+	PWMChangeDuty(1.0/MotorPWMT,MotorTimer,1);
+	PWMChangeDuty(1.0/MotorPWMT,MotorTimer,2);
+	PWMChangeDuty(1.0/MotorPWMT,MotorTimer,3);
+	PWMChangeDuty(1.0/MotorPWMT,MotorTimer,4);
 	delay_s(2);
 }
 ////////////////////////
@@ -114,7 +114,7 @@ void CopterAdjust()
 	PWMChangeValue(PowerBase-PowerOut.pitch+PowerOut.roll+PowerOut.yaw,MotorTimer,2);
 	PWMChangeValue(PowerBase-PowerOut.pitch-PowerOut.roll-PowerOut.yaw,MotorTimer,3);
 	PWMChangeValue(PowerBase+PowerOut.pitch-PowerOut.roll+PowerOut.yaw,MotorTimer,4);
-	printf("%10.2lf\n",IMUDataSolved.ANGLE.pitch);
+//	printf("%10.2lf\n",IMUDataSolved.ANGLE.pitch);
 //	delay_ms(200);
 }
 
